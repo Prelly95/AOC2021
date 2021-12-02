@@ -16,19 +16,51 @@ fn main() -> Result<()> {
 }
 
 fn part1(input: &str) -> Result<()> {
-
+	let mut h = 0;
+	let mut v = 0;
 	for line in input.lines() {
-		let n: i32 = line.parse()?;
-		println!("{}", n)
+		
+		let tmp: Vec<&str> = line.split(" ").collect();
+		let u: i32 = tmp[1].parse()?;
+		match tmp[0] {
+			"forward" => {
+				h = h + u;
+			}
+			"up" => {
+				v = v - u;
+			}
+			"down" => {
+				v = v + u;
+			}
+			_ => (),
+		}
 	}
+	println!("{}", h*v);
 	Ok(())
 }
 
 fn part2(input: &str) -> Result<()> {
-
+	let mut h = 0;
+	let mut v = 0;
+	let mut a = 0;
 	for line in input.lines() {
-		let n: i32 = line.parse()?;
-		println!("{}", n)
+		
+		let tmp: Vec<&str> = line.split(" ").collect();
+		let u: i32 = tmp[1].parse()?;
+		match tmp[0] {
+			"forward" => {
+				h = h + u;
+				v = v + a*u;
+			}
+			"up" => {
+				a = a - u;
+			}
+			"down" => {
+				a = a + u;
+			}
+			_ => (),
+		}
 	}
+	println!("{}", h*v);
 	Ok(())
 }
