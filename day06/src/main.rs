@@ -40,7 +40,9 @@ fn part1(input: &str) -> Result<()> {
 			timer: x.parse().unwrap(),
 		})
 		.collect();
-	for _ in 0..80 {
+	for day in 0..80 {
+		println!("{}", day);
+
 		let pop = fish_list.len();
 		for f in 0..pop {
 			if fish_list[f].step() {
@@ -59,7 +61,7 @@ fn part2(input: &str) -> Result<()> {
 	for f in fish_list {
 		timeline[f as usize] += 1;
 	}
-	for _ in 0..256{
+	for _ in 0..256 {
 		// println!("{:?}", timeline);
 		let wrap = timeline[0];
 		for jj in 0..8 {
